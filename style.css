@@ -129,7 +129,7 @@ h3 {
   font-family: 'Poppins', cursive;
 }
 
-@media (min-width: 501px) and (max-width: 1366px) {
+@media (min-width: 601px) and (max-width: 1366px) {
   .container {
     column-gap: 20px;
     height: 600px;
@@ -168,7 +168,7 @@ h3 {
   }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 600px) {
   .container {
     height: 95vh;
     display: grid;
