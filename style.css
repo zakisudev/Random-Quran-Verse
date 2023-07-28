@@ -11,7 +11,7 @@ body {
   background-image: url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9 0h2v20H9V0zm25.134.84l1.732 1-10 17.32-1.732-1 10-17.32zm-20 20l1.732 1-10 17.32-1.732-1 10-17.32zM58.16 4.134l1 1.732-17.32 10-1-1.732 17.32-10zm-40 40l1 1.732-17.32 10-1-1.732 17.32-10zM80 9v2H60V9h20zM20 69v2H0v-2h20zm79.32-55l-1 1.732-17.32-10L82 4l17.32 10zm-80 80l-1 1.732-17.32-10L2 84l17.32 10zm96.546-75.84l-1.732 1-10-17.32 1.732-1 10 17.32zm-100 100l-1.732 1-10-17.32 1.732-1 10 17.32zM38.16 24.134l1 1.732-17.32 10-1-1.732 17.32-10zM60 29v2H40v-2h20zm19.32 5l-1 1.732-17.32-10L62 24l17.32 10zm16.546 4.16l-1.732 1-10-17.32 1.732-1 10 17.32zM111 40h-2V20h2v20zm3.134.84l1.732 1-10 17.32-1.732-1 10-17.32zM40 49v2H20v-2h20zm19.32 5l-1 1.732-17.32-10L42 44l17.32 10zm16.546 4.16l-1.732 1-10-17.32 1.732-1 10 17.32zM91 60h-2V40h2v20zm3.134.84l1.732 1-10 17.32-1.732-1 10-17.32zm24.026 3.294l1 1.732-17.32 10-1-1.732 17.32-10zM39.32 74l-1 1.732-17.32-10L22 64l17.32 10zm16.546 4.16l-1.732 1-10-17.32 1.732-1 10 17.32zM71 80h-2V60h2v20zm3.134.84l1.732 1-10 17.32-1.732-1 10-17.32zm24.026 3.294l1 1.732-17.32 10-1-1.732 17.32-10zM120 89v2h-20v-2h20zm-84.134 9.16l-1.732 1-10-17.32 1.732-1 10 17.32zM51 100h-2V80h2v20zm3.134.84l1.732 1-10 17.32-1.732-1 10-17.32zm24.026 3.294l1 1.732-17.32 10-1-1.732 17.32-10zM100 109v2H80v-2h20zm19.32 5l-1 1.732-17.32-10 1-1.732 17.32 10zM31 120h-2v-20h2v20z' fill='%239C92AC' fill-opacity='0.4' fill-rule='evenodd'/%3E%3C/svg%3E");
   color: rgb(56, 6, 6);
   font-family: 'Poppins', sans-serif;
-  min-height: 100vh;
+  height: 90vh;
   margin: 10px;
 }
 
@@ -19,21 +19,35 @@ body {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   grid-template-rows: repeat(5, 1fr);
-  column-gap: 20px;
   row-gap: 10px;
+  max-height: 100vh;
 }
 
 .menu-container {
-  grid-column: 1 / 2;
-  grid-row: 1 / 2;
-  font-size: 1.5rem;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
   line-height: 50px;
-  width: 365px;
-  height: 75px;
+  width: 523px;
+  height: 900px;
   font-weight: bolder;
-  place-content: center;
-  margin-left: 1rem;
+  text-align: center;
+}
+
+.main-content {
+  margin-top: 20px;
+  flex-direction: column;
+  justify-content: start;
+  width: 1340px;
+  height: 900px;
+}
+
+header > div {
+  font-size: 3.5rem;
+  line-height: 50px;
+  margin: 2rem 0;
+  padding-top: 30px;
 }
 
 .menu-item {
@@ -42,53 +56,61 @@ body {
   width: 365px;
   height: 645;
 }
+
 .quran-menu {
-  font-size: 1.5rem;
-  padding-left: 15px;
+  font-size: 2rem;
   text-align: center;
   margin: 1rem 0;
   background: rgb(228, 228, 228);
-  border: 2px solid grey;
+  border: 2px solid rgb(150, 150, 150);
   border-radius: 10px;
   padding: 7px;
-  line-height: 35px;
+  line-height: 45px;
 }
 
 .hadith-menu {
   font-size: 1.2rem;
   text-align: center;
-  margin: 2rem 0;
+  margin: 1rem 0;
   background: rgb(228, 228, 228);
-  border: 2px solid grey;
+  border: 2px solid rgb(150, 150, 150);
   border-radius: 10px;
   padding: 7px;
 }
+
 .ad {
   grid-column: 1 / 2;
   font-size: 1rem;
   text-align: center;
   margin: 2rem 0;
   background: rgb(228, 228, 228);
-  border: 2px solid grey;
+  border: 2px solid rgb(150, 150, 150);
   border-radius: 10px;
   padding: 7px;
+  margin-top: 0;
+  width: 365px;
 }
-.main-content {
-  grid-column: 3 / 7;
-  grid-row: 1 / 5;
-  width: 940px;
-  height: 450px;
+
+.verses {
   background: rgb(228, 228, 228);
   border: 2px solid rgb(184, 184, 184);
   border-radius: 10px;
+  height: 700px;
   overflow: scroll;
-  place-self: center;
+}
+
+.quran-player {
+  margin-top: 15px;
+  border: 2px solid rgb(184, 184, 184);
+  height: 150px;
+  border-radius: 10px;
+  background: rgb(228, 228, 228);
 }
 
 .butn {
   padding: 0.4rem 2rem;
-  color: rgb(56, 6, 6);
-  background: rgb(139, 95, 95);
+  color: rgb(255, 255, 255);
+  background: rgb(59, 41, 41);
   font-size: 1.2rem;
   cursor: pointer;
   margin-bottom: 10px;
@@ -107,86 +129,104 @@ h3 {
   font-family: 'Poppins', cursive;
 }
 
-@media only screen and (max-width: 1000px) {
-  body {
-    background-image: linear-gradient(120deg, #f6d365 0%, #fa805e 100%) cover;
-    min-height: 100vh;
+@media (min-width: 501px) and (max-width: 1366px) {
+  .container {
+    column-gap: 20px;
+    height: 600px;
   }
-
-  h1 {
-    text-align: center;
+  .main-content {
+    width: 940px;
+    height: 600px;
+  }
+  .menu-container {
+    width: 365px;
+    height: 500px;
+  }
+  header > div {
     font-size: 3rem;
+    line-height: 40px;
+    margin: 1rem 0;
+    padding-top: 10px;
   }
-
-  .but {
-    padding: 0.3rem 0.7rem;
-    color: #41221a;
-    background: #fff6f6;
+  .quran-menu {
     font-size: 1.5rem;
+    margin: 0.5rem 0;
+    line-height: 35px;
   }
-
-  .arabic,
-  .english,
-  .amharic {
-    width: 100%;
-    text-align: center;
+  .hadith-menu {
+    font-size: 1.5rem;
+    margin: 1rem 0;
   }
-
-  h3 {
-    font-size: 1.7rem;
-    word-wrap: wrap;
+  .ad {
+    font-size: 1rem;
   }
-
   .verses {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin-top: 10px;
+    height: 450px;
+  }
+  .quran-player {
+    height: 100px;
   }
 }
 
-@media only screen and (max-width: 500px) {
-  body {
-    background-image: linear-gradient(120deg, #f6d365 0%, #fa805e 100%) cover;
-    min-height: 100vh;
+@media (max-width: 500px) {
+  .container {
+    height: 95vh;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(5, 1fr);
   }
-
-  h1 {
-    text-align: center;
-    font-size: 2.5rem;
+  header > div {
+    width: 125px;
+    grid-column: 1 / 3;
+    grid-row: 1 / 2;
+    font-size: 1.75rem;
+    line-height: 23px;
   }
-
-  .but {
-    padding: 0.3rem 0.7rem;
-    color: #41221a;
-    background: #fff6f6;
-    font-size: 1.2rem;
-  }
-
-  .arabic,
-  .english,
-  .amharic {
+  .main-content {
+    grid-column: 3 / 8;
+    grid-row: 1 / 7;
     width: 100%;
-    text-align: center;
   }
-
-  h3 {
-    font-size: 1.5rem;
-    margin-top: 2px;
-    word-wrap: break-word;
+  .menu-container {
+    grid-column: 1 / 3;
+    grid-row: 2 / 3;
+    width: 100%;
   }
-
-  .menu {
-    font-size: 1.2rem;
-    align-items: center;
-    margin: 2px;
-  }
-
-  .verses {
+  .menu-item {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    flex: 0.7;
-    margin: 0 5px;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+
+  .quran-menu {
+    font-size: 0.75rem;
+    line-height: 20px;
+    width: 100%;
+  }
+  .hadith-menu {
+    font-size: 0.75rem;
+  }
+  .quran-player {
+    height: 80px;
+    border-radius: 10px;
+    background: rgb(228, 228, 228);
+  }
+  .ad {
+    font-size: 0.75rem;
+    width: 135px;
+  }
+  .butn {
+    /* padding: 50px 20px; */
+    color: rgb(255, 255, 255);
+    background: rgb(59, 41, 41);
+    font-size: 0.75rem;
+    cursor: pointer;
+    margin-bottom: 10px;
+    transition: all 0.2s ease;
+  }
+
+  .butn:hover {
+    transform: translateY(2px);
+    color: rgb(7rgb (255, 145, 0) 75);
   }
 }
