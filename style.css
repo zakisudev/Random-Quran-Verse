@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Piedra&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 * {
   margin: 0;
@@ -7,95 +7,122 @@
 }
 
 body {
-  background-image: linear-gradient(120deg, #f6d365 0%, #fa805e 100%);
+  background-color: #dfdbe5;
+  background-image: url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9 0h2v20H9V0zm25.134.84l1.732 1-10 17.32-1.732-1 10-17.32zm-20 20l1.732 1-10 17.32-1.732-1 10-17.32zM58.16 4.134l1 1.732-17.32 10-1-1.732 17.32-10zm-40 40l1 1.732-17.32 10-1-1.732 17.32-10zM80 9v2H60V9h20zM20 69v2H0v-2h20zm79.32-55l-1 1.732-17.32-10L82 4l17.32 10zm-80 80l-1 1.732-17.32-10L2 84l17.32 10zm96.546-75.84l-1.732 1-10-17.32 1.732-1 10 17.32zm-100 100l-1.732 1-10-17.32 1.732-1 10 17.32zM38.16 24.134l1 1.732-17.32 10-1-1.732 17.32-10zM60 29v2H40v-2h20zm19.32 5l-1 1.732-17.32-10L62 24l17.32 10zm16.546 4.16l-1.732 1-10-17.32 1.732-1 10 17.32zM111 40h-2V20h2v20zm3.134.84l1.732 1-10 17.32-1.732-1 10-17.32zM40 49v2H20v-2h20zm19.32 5l-1 1.732-17.32-10L42 44l17.32 10zm16.546 4.16l-1.732 1-10-17.32 1.732-1 10 17.32zM91 60h-2V40h2v20zm3.134.84l1.732 1-10 17.32-1.732-1 10-17.32zm24.026 3.294l1 1.732-17.32 10-1-1.732 17.32-10zM39.32 74l-1 1.732-17.32-10L22 64l17.32 10zm16.546 4.16l-1.732 1-10-17.32 1.732-1 10 17.32zM71 80h-2V60h2v20zm3.134.84l1.732 1-10 17.32-1.732-1 10-17.32zm24.026 3.294l1 1.732-17.32 10-1-1.732 17.32-10zM120 89v2h-20v-2h20zm-84.134 9.16l-1.732 1-10-17.32 1.732-1 10 17.32zM51 100h-2V80h2v20zm3.134.84l1.732 1-10 17.32-1.732-1 10-17.32zm24.026 3.294l1 1.732-17.32 10-1-1.732 17.32-10zM100 109v2H80v-2h20zm19.32 5l-1 1.732-17.32-10 1-1.732 17.32 10zM31 120h-2v-20h2v20z' fill='%239C92AC' fill-opacity='0.4' fill-rule='evenodd'/%3E%3C/svg%3E");
   color: rgb(56, 6, 6);
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   min-height: 100vh;
-}
-
-header {
-  font-size: 2rem;
-  min-height: 10vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-shadow: 2px 2px 10px #ffe8e8;
   margin: 10px;
 }
 
-h1 {
-  text-align: center;
-  line-height: 40px;
+.container {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  column-gap: 20px;
+  row-gap: 10px;
 }
 
-.main-content {
-  display: flex;
-  margin: 0 auto;
-}
-
-.menu {
-  text-align: center;
-  flex: 0.2;
+.menu-container {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
   font-size: 1.5rem;
+  text-align: center;
+  line-height: 50px;
+  width: 365px;
+  height: 75px;
+  font-weight: bolder;
+  place-content: center;
+  margin-left: 1rem;
 }
 
-.verses {
-  display: flex;
-  flex: 0.7;
-    flex-direction: column;
-  justify-content: center;
-  margin: 0.5rem;
+.menu-item {
+  grid-column: 1 / 2;
+  grid-row: 2 / 5;
+  width: 365px;
+  height: 645;
 }
-
-.but {
-  padding: 0.5rem 1rem;
-  color: #fc5121;
-  background: #ebebeb;
-  border: none;
-  font-size: 1.7rem;
-  cursor: pointer;
-  transition: all 0.3s ease;
+.quran-menu {
+  font-size: 1.5rem;
+  padding-left: 15px;
+  text-align: center;
+  margin: 1rem 0;
+  background: rgb(228, 228, 228);
+  border: 2px solid grey;
   border-radius: 10px;
-  margin-top: 20px;
+  padding: 7px;
+  line-height: 35px;
 }
 
-.but:hover {
-  background: #ff6f47;
-  color: rgb(75, 75, 75);
+.hadith-menu {
+  font-size: 1.2rem;
+  text-align: center;
+  margin: 2rem 0;
+  background: rgb(228, 228, 228);
+  border: 2px solid grey;
+  border-radius: 10px;
+  padding: 7px;
+}
+.ad {
+  grid-column: 1 / 2;
+  font-size: 1rem;
+  text-align: center;
+  margin: 2rem 0;
+  background: rgb(228, 228, 228);
+  border: 2px solid grey;
+  border-radius: 10px;
+  padding: 7px;
+}
+.main-content {
+  grid-column: 3 / 7;
+  grid-row: 1 / 5;
+  width: 940px;
+  height: 450px;
+  background: rgb(228, 228, 228);
+  border: 2px solid rgb(184, 184, 184);
+  border-radius: 10px;
+  overflow: scroll;
+  place-self: center;
+}
+
+.butn {
+  padding: 0.4rem 2rem;
+  color: rgb(56, 6, 6);
+  background: rgb(139, 95, 95);
+  font-size: 1.2rem;
+  cursor: pointer;
+  margin-bottom: 10px;
+  transition: all 0.2s ease;
+}
+
+.butn:hover {
+  transform: translateY(2px);
+  color: rgb(7rgb (255, 145, 0) 75);
 }
 
 h3 {
   text-align: center;
-  font-size: 2.5rem;
-  margin: 0.5rem;
-  font-family: 'Piedra', cursive;
-}
-
-
-.arabic,
-.english,
-.amharic {
-  margin: 5px;
-  font-size: 1.5rem;
-  text-align: center;
+  font-size: 2rem;
+  padding: 5px 10px;
+  font-family: 'Poppins', cursive;
 }
 
 @media only screen and (max-width: 1000px) {
   body {
-      background-image: linear-gradient(120deg, #f6d365 0%, #fa805e 100%) cover;
-      min-height: 100vh;
-    }
+    background-image: linear-gradient(120deg, #f6d365 0%, #fa805e 100%) cover;
+    min-height: 100vh;
+  }
 
   h1 {
     text-align: center;
-  font-size: 3rem;
+    font-size: 3rem;
   }
 
   .but {
     padding: 0.3rem 0.7rem;
     color: #41221a;
     background: #fff6f6;
-  font-size: 1.5rem;
+    font-size: 1.5rem;
   }
 
   .arabic,
@@ -106,23 +133,17 @@ h3 {
   }
 
   h3 {
-  font-size: 1.7rem;
+    font-size: 1.7rem;
     word-wrap: wrap;
   }
-  
-  .menu {
-  font-size: 1.4rem;
-    flex-wrap: 0.2;
-    align-items: center;
-  }
-  
+
   .verses {
     display: flex;
     flex-direction: column;
     justify-content: center;
     margin-top: 10px;
   }
-  }
+}
 
 @media only screen and (max-width: 500px) {
   body {
@@ -133,7 +154,7 @@ h3 {
   h1 {
     text-align: center;
     font-size: 2.5rem;
-    }
+  }
 
   .but {
     padding: 0.3rem 0.7rem;
@@ -152,7 +173,7 @@ h3 {
   h3 {
     font-size: 1.5rem;
     margin-top: 2px;
-      word-wrap: break-word;
+    word-wrap: break-word;
   }
 
   .menu {

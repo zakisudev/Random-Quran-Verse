@@ -17,21 +17,41 @@
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-    <header>
-      <h1>Random Quranic Verse</h1>
-    </header>
-    <div class="main-content">
-      <div class="menu">
-        <div class="headSurah">SURAH(CHAPTER)</div>
-        <div class="surahName"></div>
-        <div class="headAyah">AYAH(VERSE)</div>
-        <div class="ayahNumb"></div>
-        <button class="but"> Generate </button>
+    <div class="container">
+      <div class="menu-container">
+        <header>
+          <h1>Random<br />Quran Verse</h1>
+        </header>
+        <div class="menu-item">
+          <!-- Menu for the Random Quran fetch -->
+          <div class="quran-menu">
+            <div class="headSurah">SURAH (CHAPTER)</div>
+            <div class="surahName"></div>
+            <div class="headAyah">AYAH (VERSE)</div>
+            <div class="ayahNumb"></div>
+            <button class="quran-b butn">Generate</button>
+          </div>
+          <!-- Menu for the Random Hadith fetch -->
+          <div class="hadith-menu">
+            <a href="./hadith/hadith.html"
+              ><button class="hadith-b butn">HADITH PAGE</button></a
+            >
+          </div>
+          <div class="ad">
+            <span>Advertise Here</span>
+          </div>
+        </div>
       </div>
-      <div class="verses">
-        <div class="arabic"></div>
-        <div class="english"></div>
-        <div class="amharic"></div>
+      <div class="main-content">
+        <!--  -->
+        <div class="verses">
+          <span class="arabic"></span>
+          <span class="english"></span>
+          <span class="amharic"></span>
+        </div>
+        <div class="quran-player">
+          <!-- Player Implementation -->
+        </div>
       </div>
     </div>
     <script src="./app.js"></script>
