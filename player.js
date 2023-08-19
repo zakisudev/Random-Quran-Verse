@@ -26,7 +26,6 @@ function quranPlayer() {
           surahsSelect.appendChild(option);
         });
 
-        // Define the audio URLs for the surahs
         const url = jsonData[0].moshaf[0].server;
         const audioUrls = surahList.map((surahNumber) => {
           if (surahNumber < 10) {
