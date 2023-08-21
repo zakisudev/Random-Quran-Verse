@@ -1,10 +1,12 @@
 const surahsSelect = document.getElementById('surahs');
+
 const audioPlayer = document.getElementById('audioPlayer');
 const playerHeader = document.querySelector('.player-header');
 const playButton = document.getElementById('play');
 const nextButton = document.getElementById('next');
 const prevButton = document.getElementById('prev');
 const stopButton = document.getElementById('stop');
+
 const surahUrl =
   'https://www.mp3quran.net/api/v3/reciters?language=eng&reciter=54';
 
