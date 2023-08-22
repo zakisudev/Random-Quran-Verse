@@ -11,6 +11,7 @@ const playButton = document.getElementById('play');
 const nextButton = document.getElementById('next');
 const prevButton = document.getElementById('prev');
 const stopButton = document.getElementById('stop');
+
 const surahUrl =
   'https://www.mp3quran.net/api/v3/reciters?language=eng&reciter=54';
 
@@ -42,7 +43,7 @@ function quranPlayer() {
           }
         });
 
-        let currentTrackIndex = 0; // Start with the first track
+        let currentTrackIndex = 0;
         let isPlaying = false;
         function playTrack() {
           audioPlayer.src = audioUrls[currentTrackIndex];
