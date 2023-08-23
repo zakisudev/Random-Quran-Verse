@@ -129,6 +129,35 @@ h3 {
   font-family: 'Poppins', cursive;
   border-bottom: 2px solid rgb(187, 187, 187);
 }
+.news {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: #e4e4e4;
+  transition: all 0.3s ease;
+  border-top: 1px solid rgb(165, 165, 165);
+  margin-left: -10px;
+}
+.news_feed {
+  display: flex;
+  animation: ticker 20s linear infinite;
+}
+.news_feed p {
+  margin: 0;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 2rem;
+  margin-right: 20px;
+}
+
+@keyframes ticker {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
 
 @media (min-width: 601px) and (max-width: 1366px) {
   .container {

@@ -7,6 +7,7 @@ const surahName = document.querySelector('.surahName');
 const ayahNumbr = document.querySelector('.ayahNumb');
 const q_b = document.querySelector('.quran-b');
 const h_b = document.querySelector('.hadith-b');
+const newsFeed = document.querySelector('.news_feed');
 
 const arabicApiURL =
   'https://cdn.jsdelivr.net/gh/fawazahmed0/quran-api@1/editions/ara-quranindopak.json';
@@ -14,8 +15,8 @@ const englishApiUrl =
   'https://cdn.jsdelivr.net/gh/fawazahmed0/quran-api@1/editions/eng-mustafakhattaba.json';
 const amharicApiUrl =
   'https://cdn.jsdelivr.net/gh/fawazahmed0/quran-api@1/editions/amh-muhammedsadiqan.json';
-const hadithUrl =
-  'https://cdn.jsdelivr.net/gh/fawazahmed0/hadith-api@1/editions.json';
+const newsUrl =
+  'https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=394237c4e9124ebaa1b166bce88db495';
 
 const suraNames = [
   'سُوْرَۃُ الفَاتِحَة',
@@ -184,19 +185,33 @@ function fetchQuran() {
     })
     .catch((err) => console.log(err));
 }
-function fetchHadith() {
-  fetch(hadithUrl)
+function fetchNews() {
+  fetch(newsUrl)
     .then((res) => res.json())
     .then((data) => {
-      console.log(data);
-    });
+      newsFeed.innerHTML = '';
+      const newNews = data.articles.map((news) => {
+        const newsTitle = document.createElement('p');
+        newsTitle.textContent = news.title;
+        newsFeed.appendChild(newsTitle);
+        return newsTitle;
+      });
+      return newNews;
+    })
+    .catch((e) => console.log(e));
 }
 
 //have a verse waiting when the page loads
-fetchQuran();
-fetchHadith();
+fetchNews();
 
+function fetchInterval() {
+  setInterval(() => {
+    fetchNews();
+    return clearInterval(fetchInterval);
+  }, 1000 * 60 * 5);
+}
+
+fetchQuran();
+fetchInterval();
 //when the button is clicked get the arabic, english and amharic translations
 q_b.addEventListener('click', () => fetchQuran());
-
-h_b.addEventListener('click', () => fetchHadith());
