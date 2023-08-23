@@ -5,6 +5,10 @@ const hadithPack = document.querySelector('.hadith_verses');
 const disButton = document.querySelector('.display');
 const dropdownMenu = document.getElementById('hadith_kind');
 
+const newsFeed = document.querySelector('.news_feed');
+const newsUrl =
+  'https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=394237c4e9124ebaa1b166bce88db495';
+
 function fetchHadithBooks(kind) {
   let apiUrl = '';
 
@@ -75,3 +79,28 @@ dropdownMenu.addEventListener('change', function () {
 // Initialize the books options based on the initial selected value of dropdownMenu.
 const initialSelectedKind = dropdownMenu.value;
 fetchHadithBooks(initialSelectedKind);
+
+function fetchNews() {
+  fetch(newsUrl)
+    .then((res) => res.json())
+    .then((data) => {
+      newsFeed.innerHTML = '';
+      const newNews = data.articles.map((news) => {
+        const newsTitle = document.createElement('p');
+        newsTitle.textContent = news.title;
+        newsFeed.appendChild(newsTitle);
+        return newsTitle;
+      });
+    })
+    .catch((e) => console.log(e));
+}
+
+fetchNews();
+// function fetchInterval() {
+//   setInterval(() => {
+//     fetchNews();
+//     return clearInterval(fetchInterval);
+//   }, 1000 * 60 * 5);
+// }
+
+// fetchInterval();

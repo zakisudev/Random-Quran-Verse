@@ -140,7 +140,7 @@ h3 {
 }
 .news_feed {
   display: flex;
-  animation: ticker 20s linear infinite;
+  animation: ticker 15s linear infinite;
 }
 .news_feed p {
   margin: 0;
@@ -148,6 +148,12 @@ h3 {
   text-overflow: ellipsis;
   font-size: 2rem;
   margin-right: 20px;
+}
+
+.weather_news p {
+  padding: 0;
+  margin: 0;
+  text-align: left;
 }
 
 @keyframes ticker {

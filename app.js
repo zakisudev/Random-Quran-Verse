@@ -8,6 +8,7 @@ const ayahNumbr = document.querySelector('.ayahNumb');
 const q_b = document.querySelector('.quran-b');
 const h_b = document.querySelector('.hadith-b');
 const newsFeed = document.querySelector('.news_feed');
+const weatherObj = document.querySelector('.weather_news');
 
 const arabicApiURL =
   'https://cdn.jsdelivr.net/gh/fawazahmed0/quran-api@1/editions/ara-quranindopak.json';
@@ -17,6 +18,8 @@ const amharicApiUrl =
   'https://cdn.jsdelivr.net/gh/fawazahmed0/quran-api@1/editions/amh-muhammedsadiqan.json';
 const newsUrl =
   'https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=394237c4e9124ebaa1b166bce88db495';
+const weatherApi =
+  'https://api.open-meteo.com/v1/forecast?latitude=25&longitude=45&hourly=temperature_2m&daily=weathercode,temperature_2m_max,temperature_2m_min,sunrise,sunset&timezone=Africa%2FCairo&forecast_days=1';
 
 const suraNames = [
   'سُوْرَۃُ الفَاتِحَة',
@@ -201,7 +204,6 @@ function fetchNews() {
     .catch((e) => console.log(e));
 }
 
-//have a verse waiting when the page loads
 fetchNews();
 
 function fetchInterval() {
@@ -211,6 +213,31 @@ function fetchInterval() {
   }, 1000 * 60 * 5);
 }
 
+function weatherNews() {
+  fetch(weatherApi)
+    .then((res) => res.json())
+    .then((data) => {
+      const { sunrise, sunset, temperature_2m_max, temperature_2m_min } =
+        data.daily;
+      const sunRise = new Date(sunrise[0]);
+      const sunriseHour = sunRise.getHours();
+      const sunriseMinutes = sunRise.getMinutes();
+      const sunriseTime = sunriseHour + ':' + sunriseMinutes;
+      const sunSet = new Date(sunset[0]);
+      const sunsetHour = sunSet.getHours();
+      const sunsetMinutes = sunSet.getMinutes();
+      const sunsetTime = sunsetHour + ':' + sunsetMinutes;
+      weatherObj.innerHTML = `
+        <p>Sunrise: ${sunriseTime}</p>
+        <p>Sunset: ${sunsetTime}</p>
+        <p>Max Temp: ${temperature_2m_max[0]} *C</p>
+        <p>Min Temp: ${temperature_2m_min[0]} *C</p>
+      `;
+    })
+    .catch((e) => console.log(e));
+}
+weatherNews();
+//have a verse waiting when the page loads
 fetchQuran();
 fetchInterval();
 //when the button is clicked get the arabic, english and amharic translations
