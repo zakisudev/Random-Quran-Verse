@@ -67,7 +67,10 @@ header > div {
   padding: 7px;
   line-height: 45px;
 }
-
+select {
+  padding: 5px 10px;
+  font-size: 0.8rem;
+}
 .hadith-menu {
   font-size: 1.2rem;
   text-align: center;
@@ -98,7 +101,15 @@ header > div {
   height: 700px;
   overflow: scroll;
 }
-
+.hadith-head {
+  display: flex;
+  justify-content: start;
+  padding-bottom: 1rem;
+}
+.books {
+  margin-right: auto;
+  margin-left: 1rem;
+}
 .verses {
   background: rgb(228, 228, 228);
   border: 2px solid rgb(184, 184, 184);
@@ -127,6 +138,16 @@ h3 {
   font-size: 2rem;
   padding: 5px 10px;
   font-family: 'Poppins', cursive;
+}
+h4 {
+  font-size: 1.5rem;
+}
+.hadith_verses li {
+  list-style: armenian;
+  font-size: 2rem;
+  padding: 2rem;
+  text-align: right;
+  border: 2px solid rgb(189, 189, 189);
 }
 
 @media (min-width: 601px) and (max-width: 1366px) {
