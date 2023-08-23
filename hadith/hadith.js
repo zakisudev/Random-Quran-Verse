@@ -2,7 +2,7 @@ import { hadithUrl, abd, bkr, ibnmjh, mlk, msl, trmz, nse } from './vars.js';
 
 const books = document.getElementById('hadith_books');
 const hadithPack = document.querySelector('.hadith_verses');
-
+const disButton = document.querySelector('.display');
 const dropdownMenu = document.getElementById('hadith_kind');
 
 function fetchHadithBooks(kind) {
@@ -53,17 +53,19 @@ function fetchHadithBooks(kind) {
           books.appendChild(option);
         }
       });
-      const ab = data.hadiths.slice(0, 1000);
-      const had = ab.map((e) => {
-        return `<li>${e.text}</li>`;
-      });
-      const listHad = had.join('');
-      console.log('here');
-      hadithPack.innerHTML += listHad;
+      function displayHadith() {
+        const ab = data.hadiths.slice(0, 1000);
+        const had = ab.map((e) => {
+          return `<li>${e.text}</li>`;
+        });
+        const listHad = had.join('');
+        console.log('here');
+        hadithPack.innerHTML += listHad;
+      }
+      disButton.addEventListener('click', displayHadith);
     })
     .catch((e) => console.log(e));
 }
-
 // Add an event listener for the 'change' event on the dropdownMenu.
 dropdownMenu.addEventListener('change', function () {
   const selectedKind = dropdownMenu.value;
@@ -73,5 +75,3 @@ dropdownMenu.addEventListener('change', function () {
 // Initialize the books options based on the initial selected value of dropdownMenu.
 const initialSelectedKind = dropdownMenu.value;
 fetchHadithBooks(initialSelectedKind);
-
-fetchHadithBooks();

@@ -68,9 +68,27 @@ header > div {
   line-height: 45px;
 }
 select {
-  padding: 5px 10px;
-  font-size: 0.8rem;
+  padding: 7px 10px;
+  font-size: 1rem;
 }
+#hadith_kind {
+  padding-right: 3rem;
+}
+.display {
+  padding: 0.5rem 2rem;
+  font-size: 1rem;
+  background: rgb(66, 180, 101);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-bottom: 1rem;
+  transition: all 0.3s ease;
+}
+.display:hover {
+  background: rgb(38, 150, 72);
+}
+
 .hadith-menu {
   font-size: 1.2rem;
   text-align: center;
@@ -142,12 +160,12 @@ h3 {
 h4 {
   font-size: 1.5rem;
 }
-.hadith_verses li {
-  list-style: armenian;
-  font-size: 2rem;
+.hadith_verses > li {
+  list-style: georgian;
+  font-size: 1.5rem;
   padding: 2rem;
   text-align: right;
-  border: 2px solid rgb(189, 189, 189);
+  border-bottom: 2px solid rgb(143, 143, 143);
 }
 
 @media (min-width: 601px) and (max-width: 1366px) {
@@ -195,6 +213,7 @@ h4 {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     grid-template-rows: repeat(5, 1fr);
+    width: 100%;
   }
   header > div {
     width: 125px;
@@ -203,10 +222,16 @@ h4 {
     font-size: 1.75rem;
     line-height: 23px;
   }
+  .books {
+    margin: 0;
+    word-wrap: break-word;
+  }
   .main-content {
     grid-column: 3 / 8;
     grid-row: 1 / 7;
     width: 100%;
+    margin-left: 5px;
+    margin-top: 0;
   }
   .menu-container {
     grid-column: 1 / 3;
@@ -218,7 +243,6 @@ h4 {
     flex-wrap: wrap;
     width: 100%;
   }
-
   .quran-menu {
     font-size: 0.75rem;
     line-height: 20px;
@@ -245,9 +269,25 @@ h4 {
     margin-bottom: 10px;
     transition: all 0.2s ease;
   }
-
+  .hadith-head {
+    display: block;
+    justify-content: start;
+    padding-bottom: 1rem;
+  }
   .butn:hover {
     transform: translateY(2px);
     color: rgb(7rgb (255, 145, 0) 75);
+  }
+  .quran-b {
+    padding: 5px 10px;
+    width: 100%;
+    justify-content: center;
+  }
+  .ad {
+    padding: 5px 10px;
+    width: 100%;
+  }
+  select {
+    width: 15rem;
   }
 }
