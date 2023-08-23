@@ -1,6 +1,6 @@
 # Random Quran Verse Generator Web App V. 0.1
 
-![App Screenshot]([screenshot.png](https://github.com/zakisu250/Random-Quran-Verse/blob/main/images/Screenshot_RQVG.png))
+![App Screenshot](https://github.com/zakisu250/Random-Quran-Verse/blob/e8f08e61656ab6969272531dd2c232e36af50077/images/Screenshot_RQVG.png)
 
 ## Overview
 
