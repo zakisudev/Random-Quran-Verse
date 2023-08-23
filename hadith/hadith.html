@@ -39,30 +39,34 @@
       <div class="main-content">
         <!--  -->
         <div class="hadiths">
-          <div class="kinds">
-            <h4>Select Hadith kind</h4>
-            <select id="hadith_kind">
-              <option value="" selected disabled></option>
-              <option value="abudawud">Abudawud</option>
-              <option value="bukhari">Bukhari</option>
-              <option value="ibnmajah">Ibn Majah</option>
-              <option value="malik">Malik</option>
-              <option value="muslim">Muslim</option>
-              <option value="nasai">Nasai</option>
-              <option value="tirmidhi">Tirmidhi</option>
-            </select>
-          </div>
-          <div class="books">
-            <h4>Select Book</h4>
-            <select id="hadith_books"></select>
+          <div class="hadith-head">
+            <div class="kinds">
+              <h4>Select Hadith kind</h4>
+              <select id="hadith_kind">
+                <!-- <option value="" selected disabled></option> -->
+                <option value="abudawud">Abudawud</option>
+                <option value="bukhari">Bukhari</option>
+                <option value="ibnmajah">Ibn Majah</option>
+                <option value="malik">Malik</option>
+                <option value="muslim">Muslim</option>
+                <option value="nasai">Nasai</option>
+                <option value="tirmidhi">Tirmidhi</option>
+              </select>
+            </div>
+            <div class="books">
+              <h4>Select Hadith Book</h4>
+              <select id="hadith_books">
+                <!-- <option value="" selected disabled></option> -->
+              </select>
+            </div>
           </div>
           <div class="verses">
-            <ul class="hadith_verses"></ul>
+            <ol class="hadith_verses"></ol>
           </div>
         </div>
       </div>
     </div>
-    <script type="module" src="./app.js"></script>
+    <script type="module" src="./hadith.js"></script>
     <script type="module" src="./vars.js"></script>
   </body>
 </html>
