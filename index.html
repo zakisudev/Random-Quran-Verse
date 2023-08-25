@@ -15,21 +15,22 @@
       crossorigin="anonymous"
     />
 
-    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./styles/quranp.css" />
+    <link rel="stylesheet" href="./styles/mainStyle.css" />
   </head>
   <body>
     <div class="container">
       <div class="menu-container">
         <header>
-          <div>Random<br />Quran Verse</div>
+          <div class="header">Random<br />Quran Verse</div>
         </header>
         <div class="menu-item">
           <!-- Menu for the Random Quran fetch -->
           <div class="quran-menu">
-            <div class="headSurah">SURAH (CHAPTER)</div>
-            <div class="surahName"></div>
-            <div class="headAyah">AYAH (VERSE)</div>
-            <div class="ayahNumb"></div>
+            <p class="headSurah">SURAH (CHAPTER)</p>
+            <p class="surahName"></p>
+            <p class="headAyah">AYAH (VERSE)</p>
+            <p class="ayahNumb"></p>
             <button class="quran-b butn">GENERATE</button>
           </div>
           <!-- Menu for the Random Hadith fetch -->
@@ -40,10 +41,10 @@
           </div>
         </div>
         <!-- Ad fetcher -->
+        <div class="weather_news ad"></div>
         <div class="ad">
           <span>Advertise Here</span>
         </div>
-        <div class="weather_news ad"></div>
       </div>
       <div class="main-content">
         <!--  -->
@@ -54,7 +55,16 @@
         </div>
         <div class="quran-player">
           <!-- Player Implementation -->
-          Player Here
+          <select name="surahs" id="surahs"></select>
+          <audio id="audioPlayer"></audio>
+          <div class="player-header"></div>
+          <div class="player-controls">
+            <i class="fas fa-backward" id="prev" title="Previous"></i>
+            <i class="fas fa-play main-button" id="play" title="Play"></i>
+            <i class="fas fa-forward" id="next" title="Next"></i>
+            <i class="fas fa-stop stop-button" id="stop" title="Stop"></i>
+          </div>
+          <button class="maximize">Maximize</button>
         </div>
       </div>
     </div>
@@ -62,5 +72,6 @@
       <div class="news_feed"></div>
     </footer>
     <script src="./app.js"></script>
+    <script src="./player.js"></script>
   </body>
 </html>

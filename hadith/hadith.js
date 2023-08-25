@@ -85,7 +85,7 @@ function fetchNews() {
     .then((res) => res.json())
     .then((data) => {
       newsFeed.innerHTML = '';
-      const newNews = data.articles.map((news) => {
+      data.articles.map((news) => {
         const newsTitle = document.createElement('p');
         newsTitle.textContent = news.title;
         newsFeed.appendChild(newsTitle);

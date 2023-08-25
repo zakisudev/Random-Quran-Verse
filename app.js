@@ -188,6 +188,7 @@ function fetchQuran() {
     })
     .catch((err) => console.log(err));
 }
+
 function fetchNews() {
   fetch(newsUrl)
     .then((res) => res.json())
@@ -228,10 +229,20 @@ function weatherNews() {
       const sunsetMinutes = sunSet.getMinutes();
       const sunsetTime = sunsetHour + ':' + sunsetMinutes;
       weatherObj.innerHTML = `
-        <p>Sunrise: ${sunriseTime}</p>
-        <p>Sunset: ${sunsetTime}</p>
-        <p>Max Temp: ${temperature_2m_max[0]} *C</p>
-        <p>Min Temp: ${temperature_2m_min[0]} *C</p>
+      <div>
+      <p>Location</p>
+      <p>Sunrise: </p>
+      <p>Sunset: </p>
+      <p>Max Temp:  </p>
+      <p>Min Temp: </p>
+      </div>
+      <div>
+      <p> KSA </p>
+      <p>${sunriseTime}</p>
+      <p>${sunsetTime}</p>
+      <p>${temperature_2m_max[0]}</p>
+      <p>${temperature_2m_min[0]} *C</p>
+      </div>
       `;
     })
     .catch((e) => console.log(e));
