@@ -1,6 +1,3 @@
-const title = document.getElementById('title');
-const artist = document.getElementById('artist');
-
 const proContainer = document.getElementById('progress-container');
 const currentTimeEl = document.getElementById('current-time');
 const durationEl = document.getElementById('duration');
@@ -8,7 +5,7 @@ const progressEl = document.getElementById('progress');
 
 const surahsSelect = document.getElementById('surahs');
 const audioPlayer = document.getElementById('audioPlayer');
-const playerHeader = document.querySelector('.player-header');
+const playerHeader = document.querySelector('#title');
 
 const playButton = document.getElementById('play');
 const nextButton = document.getElementById('next');
@@ -84,12 +81,13 @@ function quranPlayer() {
 
           audioPlayer.src = newUrl;
           currentTrackIndex = parseInt(selectedSurah - 1);
-          console.log(currentTrackIndex);
           audioPlayer.play();
           isPlaying = true;
           playButton.classList.replace('fa-play', 'fa-pause');
           playButton.setAttribute('title', 'Pause');
-          playerHeader.innerHTML = `${jsonData[0].name} | Sura ${selectedSurah}`;
+          playerHeader.innerHTML = `${jsonData[0].name} | Sura ${
+            currentTrackIndex + 1
+          }`;
         });
 
         // Progress bar
@@ -118,14 +116,16 @@ function quranPlayer() {
             if (durationSeconds) {
               durationEl.textContent = `${durationMinutes}:${durationSeconds}`;
             }
+          } else {
+            progress.style.width = 0;
           }
         }
         // Set progress bar
         function setProgressBar(e) {
           const width = this.clientWidth;
           const clickX = e.offsetX;
-          const { duration } = music;
-          music.currentTime = (clickX / width) * duration;
+          const { duration } = audioPlayer;
+          audioPlayer.currentTime = (clickX / width) * duration;
         }
         // Event listeners
         playButton.addEventListener('click', () =>
@@ -140,13 +140,13 @@ function quranPlayer() {
           playButton.classList.replace('fa-pause', 'fa-play');
           playButton.setAttribute('title', 'Play');
         });
+
+        // Event listeners
+        audioPlayer.addEventListener('timeupdate', updateProgressBar);
+        audioPlayer.addEventListener('ended', nextTrack);
+        proContainer.addEventListener('click', setProgressBar);
       }
     });
 }
 
 quranPlayer();
-
-// Event listeners
-audioPlayer.addEventListener('timeupdate', updateProgressBar);
-audioPlayer.addEventListener('ended', nextSong);
-proContainer.addEventListener('click', setProgressBar);

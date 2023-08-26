@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Quran Audio Player</title>
-    <link rel="icon" type="image/png" href="favicon.png" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css"
@@ -15,11 +14,11 @@
     <div class="player-container">
       <!-- Quran -->
       <div class="img-container">
-        <img src="./img/jacinto-1.jpg" alt="Album art" />
+        <img src="./img/quramp3.png" alt="Album art" />
       </div>
-      <h2 id="title"></h2>
-      <h3 id="artist"></h3>
-      <audio id="audio" src="./music/jacinto-1.mp3"></audio>
+      <h2 id="title">Press Play</h2>
+      <select name="Surahs" id="surahs"></select>
+      <audio id="audioPlayer" src=""></audio>
       <!-- Progress -->
       <div class="progress-container" id="progress-container">
         <div class="progress" id="progress">
