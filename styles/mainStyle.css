@@ -167,6 +167,9 @@ h3 {
 }
 
 @media (min-width: 501px) and (max-width: 1366px) {
+  body {
+    overflow-x: hidden;
+  }
   .container {
     column-gap: 20px;
     height: 100vh;
@@ -210,6 +213,9 @@ h3 {
 }
 
 @media (max-width: 500px) {
+  body {
+    overflow-x: hidden;
+  }
   .container {
     height: 95vh;
     display: grid;
@@ -270,7 +276,6 @@ h3 {
     margin-left: -5px;
   }
   .butn {
-    /* padding: 50px 20px; */
     color: rgb(255, 255, 255);
     background: rgb(59, 41, 41);
     font-size: 0.75rem;
