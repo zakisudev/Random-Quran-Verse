@@ -166,7 +166,11 @@ h3 {
   text-align: left;
 }
 
+<<<<<<< HEAD
 @media (min-width: 601px) and (max-width: 1366px) {
+=======
+@media (min-width: 501px) and (max-width: 1366px) {
+>>>>>>> 681ece77602d365202c8ce54276f164725764832
   body {
     overflow-x: hidden;
   }
@@ -212,7 +216,11 @@ h3 {
   }
 }
 
+<<<<<<< HEAD
 @media (max-width: 600px) {
+=======
+@media (max-width: 500px) {
+>>>>>>> 681ece77602d365202c8ce54276f164725764832
   body {
     overflow-x: hidden;
   }
