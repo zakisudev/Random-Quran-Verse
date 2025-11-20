@@ -3,75 +3,86 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Random Quran Verse</title>
+    <meta name="description" content="Random Quran Verse Generator - Discover and reflect upon beautiful verses from the Holy Quran with translations in English and Amharic" />
+    <title>Random Quran Verse Generator</title>
     <link
-      href="https://fonts.googleapis.com/css?family=Poppins&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Amiri:wght@400;700&display=swap"
       rel="stylesheet"
     />
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
-      integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk="
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
       crossorigin="anonymous"
+      referrerpolicy="no-referrer"
     />
-
     <link rel="stylesheet" href="./styles/quranp.css" />
     <link rel="stylesheet" href="./styles/mainStyle.css" />
   </head>
   <body>
     <div class="container">
-      <div class="menu-container">
+      <aside class="menu-container" role="complementary" aria-label="Navigation menu">
         <header>
-          <div class="header">Random<br />Quran Verse</div>
+          <h1 class="header">Random<br />Quran Verse</h1>
         </header>
-        <div class="menu-item">
+        <nav class="menu-item" aria-label="Main navigation">
           <!-- Menu for the Random Quran fetch -->
-          <div class="quran-menu">
-            <p class="headSurah">SURAH (CHAPTER)</p>
-            <p class="surahName"></p>
-            <p class="headAyah">AYAH (VERSE)</p>
-            <p class="ayahNumb"></p>
-            <button class="quran-b butn">GENERATE</button>
-          </div>
+          <section class="quran-menu" aria-labelledby="quran-menu-heading">
+            <h2 id="quran-menu-heading" class="headSurah" aria-hidden="true">SURAH (CHAPTER)</h2>
+            <p class="surahName" aria-live="polite" aria-atomic="true"></p>
+            <h2 class="headAyah" aria-hidden="true">AYAH (VERSE)</h2>
+            <p class="ayahNumb" aria-live="polite" aria-atomic="true"></p>
+            <button class="quran-b butn" aria-label="Generate random Quran verse">GENERATE</button>
+          </section>
           <!-- Menu for the Random Hadith fetch -->
-          <div class="hadith-menu">
-            <a href="./hadith/hadith.html"
-              ><button class="hadith-b butn">HADITH PAGES</button></a
-            >
-          </div>
-        </div>
-        <!-- Ad fetcher -->
-        <div class="weather_news ad"></div>
-        <div class="ad">
+          <section class="hadith-menu">
+            <a href="./hadith/hadith.html" aria-label="Navigate to Hadith pages">
+              <button class="hadith-b butn">HADITH PAGES</button>
+            </a>
+          </section>
+        </nav>
+        <!-- Weather information -->
+        <section class="weather_news ad" aria-label="Weather information" role="region"></section>
+        <!-- Advertisement placeholder -->
+        <aside class="ad" aria-label="Advertisement">
           <span>Advertise Here</span>
-        </div>
-      </div>
-      <div class="main-content">
-        <!--  -->
-        <div class="verses">
-          <span class="arabic"></span>
-          <span class="english"></span>
-          <span class="amharic"></span>
-        </div>
-        <div class="quran-player">
-          <!-- Player Implementation -->
-          <select name="surahs" id="surahs"></select>
-          <audio id="audioPlayer"></audio>
-          <div class="player-header">
+        </aside>
+      </aside>
+      <main class="main-content" role="main">
+        <!-- Verse display -->
+        <article class="verses" aria-label="Quran verse">
+          <div class="arabic" role="text" aria-label="Arabic verse" dir="rtl" lang="ar"></div>
+          <div class="english" role="text" aria-label="English translation" lang="en"></div>
+          <div class="amharic" role="text" aria-label="Amharic translation" lang="am"></div>
+        </article>
+        <!-- Audio player -->
+        <section class="quran-player" aria-label="Quran audio player">
+          <label for="surahs" class="sr-only">Select Surah</label>
+          <select name="surahs" id="surahs" aria-label="Select a Surah to play"></select>
+          <audio id="audioPlayer" aria-label="Quran audio player"></audio>
+          <div class="player-header" role="status" aria-live="polite">
             <strong>Choose Surah</strong> or <strong>Press Play</strong>
           </div>
-          <div class="player-controls">
-            <i class="fas fa-backward" id="prev" title="Previous"></i>
-            <i class="fas fa-play main-button" id="play" title="Play"></i>
-            <i class="fas fa-forward" id="next" title="Next"></i>
-            <i class="fas fa-stop stop-button" id="stop" title="Stop"></i>
+          <div class="player-controls" role="group" aria-label="Audio player controls">
+            <button type="button" id="prev" aria-label="Previous track" title="Previous">
+              <i class="fas fa-backward"></i>
+            </button>
+            <button type="button" class="main-button" id="play" aria-label="Play audio" title="Play">
+              <i class="fas fa-play"></i>
+            </button>
+            <button type="button" id="next" aria-label="Next track" title="Next">
+              <i class="fas fa-forward"></i>
+            </button>
+            <button type="button" class="stop-button" id="stop" aria-label="Stop audio" title="Stop">
+              <i class="fas fa-stop"></i>
+            </button>
           </div>
-          <a href="player/index.html" class="maximize">Maximize</a>
-        </div>
-      </div>
+          <a href="player/index.html" class="maximize" aria-label="Open player in full screen">Maximize</a>
+        </section>
+      </main>
     </div>
-    <footer class="news">
-      <div class="news_feed"></div>
+    <footer class="news" role="contentinfo" aria-label="News ticker">
+      <div class="news_feed" aria-live="polite" aria-atomic="false"></div>
     </footer>
     <script src="./app.js"></script>
     <script src="./player.js"></script>

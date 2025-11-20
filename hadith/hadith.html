@@ -3,46 +3,47 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Hadith Pages - Explore authentic Hadith collections from various scholars" />
     <title>Hadith Pages</title>
     <link
-      href="https://fonts.googleapis.com/css?family=Poppins&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Amiri:wght@400;700&display=swap"
       rel="stylesheet"
     />
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
-      integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk="
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
       crossorigin="anonymous"
+      referrerpolicy="no-referrer"
     />
-
     <link rel="stylesheet" href="./hadithp.css" />
   </head>
   <body>
     <div class="container">
-      <div class="menu-container">
+      <aside class="menu-container" role="complementary" aria-label="Navigation menu">
         <header>
-          <div>Hadith Pages</div>
+          <h1 class="header">Hadith Pages</h1>
         </header>
-        <div class="menu-item">
-          <!-- Menu for the Random Hadith fetch -->
-          <div class="hadith-menu">
-            <a href="../index.html"
-              ><button class="quran-b butn">QURAN PAGES</button></a
-            >
-          </div>
-        </div>
-        <!-- Ad fetcher -->
-        <div class="ad">
+        <nav class="menu-item" aria-label="Main navigation">
+          <section class="hadith-menu">
+            <a href="../index.html" aria-label="Navigate to Quran pages">
+              <button class="quran-b butn">QURAN PAGES</button>
+            </a>
+          </section>
+        </nav>
+        <!-- Advertisement placeholder -->
+        <aside class="ad" aria-label="Advertisement">
           <span>Advertise Here</span>
-        </div>
-      </div>
-      <div class="main-content">
-        <!--  -->
-        <div class="hadiths">
+        </aside>
+      </aside>
+      <main class="main-content" role="main">
+        <section class="hadiths" aria-label="Hadith collection">
           <div class="hadith-head">
             <div class="kinds">
-              <h4>Select kind</h4>
-              <select id="hadith_kind">
+              <label for="hadith_kind">
+                <h4>Select Collection</h4>
+              </label>
+              <select id="hadith_kind" aria-label="Select Hadith collection">
                 <option value="abudawud">Abudawud</option>
                 <option value="bukhari">Bukhari</option>
                 <option value="ibnmajah">Ibn Majah</option>
@@ -53,21 +54,23 @@
               </select>
             </div>
             <div class="books">
-              <h4>Select Book</h4>
-              <select id="hadith_books">
+              <label for="hadith_books">
+                <h4>Select Book</h4>
+              </label>
+              <select id="hadith_books" aria-label="Select book">
                 <!-- <option value="" selected disabled></option> -->
               </select>
             </div>
           </div>
-          <button class="display">List Hadith</button>
-          <div class="verses">
+          <button class="display" aria-label="List Hadith">List Hadith</button>
+          <div class="verses" role="region" aria-label="Hadith list">
             <ol class="hadith_verses"></ol>
           </div>
-        </div>
-      </div>
+        </section>
+      </main>
     </div>
-    <footer class="news">
-      <div class="news_feed"></div>
+    <footer class="news" role="contentinfo" aria-label="News ticker">
+      <div class="news_feed" aria-live="polite" aria-atomic="false"></div>
     </footer>
     <script type="module" src="./hadith.js"></script>
     <script type="module" src="./vars.js"></script>

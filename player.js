@@ -43,16 +43,20 @@ function quranPlayer() {
           audioPlayer.src = audioUrls[currentTrackIndex];
           audioPlayer.play();
           isPlaying = true;
-          playButton.classList.replace('fa-play', 'fa-pause');
+          const playIcon = playButton.querySelector('i');
+          playIcon.classList.replace('fa-play', 'fa-pause');
           playButton.setAttribute('title', 'Pause');
+          playButton.setAttribute('aria-label', 'Pause audio');
           playerHeader.innerHTML = `${jsonData[0].name} | Sura ${surahList[currentTrackIndex]}`;
         }
 
         function pauseTrack() {
           audioPlayer.pause();
           isPlaying = false;
-          playButton.classList.replace('fa-pause', 'fa-play');
+          const playIcon = playButton.querySelector('i');
+          playIcon.classList.replace('fa-pause', 'fa-play');
           playButton.setAttribute('title', 'Play');
+          playButton.setAttribute('aria-label', 'Play audio');
         }
 
         function nextTrack() {
@@ -76,11 +80,12 @@ function quranPlayer() {
 
           audioPlayer.src = newUrl;
           currentTrackIndex = parseInt(selectedSurah - 1);
-          console.log(currentTrackIndex);
           audioPlayer.play();
           isPlaying = true;
-          playButton.classList.replace('fa-play', 'fa-pause');
+          const playIcon = playButton.querySelector('i');
+          playIcon.classList.replace('fa-play', 'fa-pause');
           playButton.setAttribute('title', 'Pause');
+          playButton.setAttribute('aria-label', 'Pause audio');
           playerHeader.innerHTML = `${jsonData[0].name} | Sura ${selectedSurah}`;
         });
 
@@ -94,8 +99,11 @@ function quranPlayer() {
           audioPlayer.pause();
           audioPlayer.currentTime = 0;
           isPlaying = false;
-          playButton.classList.replace('fa-pause', 'fa-play');
+          const playIcon = playButton.querySelector('i');
+          playIcon.classList.replace('fa-pause', 'fa-play');
           playButton.setAttribute('title', 'Play');
+          playButton.setAttribute('aria-label', 'Play audio');
+          playerHeader.innerHTML = '<strong>Choose Surah</strong> or <strong>Press Play</strong>';
         });
       }
     });

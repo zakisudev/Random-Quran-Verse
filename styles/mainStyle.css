@@ -1,4 +1,42 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Amiri:wght@400;700&display=swap');
+
+:root {
+  /* Modern Color Palette */
+  --primary-color: #1a5f3f;
+  --primary-dark: #0d3d26;
+  --primary-light: #2d7a5a;
+  --accent-color: #d4af37;
+  --accent-light: #f4e4a6;
+  --bg-primary: #f8f9fa;
+  --bg-secondary: #ffffff;
+  --bg-card: #ffffff;
+  --text-primary: #2c3e50;
+  --text-secondary: #5a6c7d;
+  --text-light: #8b9aab;
+  --border-color: #e1e8ed;
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+  --gradient-primary: linear-gradient(135deg, #1a5f3f 0%, #2d7a5a 100%);
+  --gradient-accent: linear-gradient(135deg, #d4af37 0%, #f4e4a6 100%);
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Screen reader only class for accessibility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
 
 * {
   margin: 0;
@@ -6,344 +44,523 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  background-color: #dfdbe5;
-  background-image: url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9 0h2v20H9V0zm25.134.84l1.732 1-10 17.32-1.732-1 10-17.32zm-20 20l1.732 1-10 17.32-1.732-1 10-17.32zM58.16 4.134l1 1.732-17.32 10-1-1.732 17.32-10zm-40 40l1 1.732-17.32 10-1-1.732 17.32-10zM80 9v2H60V9h20zM20 69v2H0v-2h20zm79.32-55l-1 1.732-17.32-10L82 4l17.32 10zm-80 80l-1 1.732-17.32-10L2 84l17.32 10zm96.546-75.84l-1.732 1-10-17.32 1.732-1 10 17.32zm-100 100l-1.732 1-10-17.32 1.732-1 10 17.32zM38.16 24.134l1 1.732-17.32 10-1-1.732 17.32-10zM60 29v2H40v-2h20zm19.32 5l-1 1.732-17.32-10L62 24l17.32 10zm16.546 4.16l-1.732 1-10-17.32 1.732-1 10 17.32zM111 40h-2V20h2v20zm3.134.84l1.732 1-10 17.32-1.732-1 10-17.32zM40 49v2H20v-2h20zm19.32 5l-1 1.732-17.32-10L42 44l17.32 10zm16.546 4.16l-1.732 1-10-17.32 1.732-1 10 17.32zM91 60h-2V40h2v20zm3.134.84l1.732 1-10 17.32-1.732-1 10-17.32zm24.026 3.294l1 1.732-17.32 10-1-1.732 17.32-10zM39.32 74l-1 1.732-17.32-10L22 64l17.32 10zm16.546 4.16l-1.732 1-10-17.32 1.732-1 10 17.32zM71 80h-2V60h2v20zm3.134.84l1.732 1-10 17.32-1.732-1 10-17.32zm24.026 3.294l1 1.732-17.32 10-1-1.732 17.32-10zM120 89v2h-20v-2h20zm-84.134 9.16l-1.732 1-10-17.32 1.732-1 10 17.32zM51 100h-2V80h2v20zm3.134.84l1.732 1-10 17.32-1.732-1 10-17.32zm24.026 3.294l1 1.732-17.32 10-1-1.732 17.32-10zM100 109v2H80v-2h20zm19.32 5l-1 1.732-17.32-10 1-1.732 17.32 10zM31 120h-2v-20h2v20z' fill='%239C92AC' fill-opacity='0.4' fill-rule='evenodd'/%3E%3C/svg%3E");
-  color: rgb(56, 6, 6);
+  background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf1 100%);
+  background-attachment: fixed;
+  color: var(--text-primary);
   font-family: 'Poppins', sans-serif;
-  height: 90vh;
-  margin: 10px;
+  font-weight: 400;
+  line-height: 1.6;
+  min-height: 100vh;
+  padding: 20px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Focus styles for accessibility */
+*:focus-visible {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
 }
 
 .container {
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  grid-template-rows: repeat(5, 1fr);
-  row-gap: 10px;
-  max-height: 100vh;
+  grid-template-columns: 380px 1fr;
+  grid-template-rows: auto 1fr;
+  gap: 24px;
+  max-width: 1800px;
+  margin: 0 auto;
+  min-height: calc(100vh - 40px);
 }
 
 .menu-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: start;
-  line-height: 50px;
-  width: 523px;
-  height: 900px;
-  font-weight: bolder;
-  text-align: center;
+  gap: 20px;
+  background: var(--bg-secondary);
+  border-radius: var(--radius-lg);
+  padding: 32px 24px;
+  box-shadow: var(--shadow-md);
+  height: fit-content;
+  position: sticky;
+  top: 20px;
 }
 
 .main-content {
-  margin-top: 20px;
+  display: flex;
   flex-direction: column;
-  justify-content: start;
-  width: 1340px;
-  height: 900px;
+  gap: 20px;
+  min-width: 0;
 }
 
 .header {
-  font-size: 3.5rem;
-  line-height: 40px;
-  margin: 20px 0;
-  padding-top: 30px;
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 8px;
+  padding: 0;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-align: center;
+  letter-spacing: -0.5px;
 }
 
 .menu-item {
-  grid-column: 1 / 2;
-  grid-row: 2 / 5;
-  width: 365px;
-  height: 645;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
 }
 
 .quran-menu {
   text-align: center;
-  background: rgb(228, 228, 228);
-  border: 2px solid rgb(150, 150, 150);
-  border-radius: 10px;
-  padding: 7px;
-  margin-top: 20px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 24px 20px;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
 }
+
+.quran-menu:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
 .quran-menu p {
-  font-size: 1.5rem;
-  line-height: 30px;
-  padding: 5px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+
+.quran-menu .surahName,
+.quran-menu .ayahNumb {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  margin-bottom: 16px;
+  line-height: 1.5;
+  min-height: 24px;
+}
+
+.headSurah,
+.headAyah {
+  font-size: 0.75rem;
+  color: var(--text-light);
+  margin-bottom: 4px;
 }
 
 .hadith-menu {
   text-align: center;
-  background: rgb(228, 228, 228);
-  border: 2px solid rgb(150, 150, 150);
-  border-radius: 10px;
-  line-height: 5px;
-  margin-top: 10px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+
+.hadith-menu:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
 }
 
 .ad {
-  grid-column: 1 / 2;
-  font-size: 1rem;
+  font-size: 0.875rem;
   text-align: center;
-  margin: 2rem 0;
-  background: rgb(228, 228, 228);
-  border: 2px solid rgb(150, 150, 150);
-  border-radius: 10px;
-  padding: 7px;
-  margin-top: 0;
-  width: 365px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  box-shadow: var(--shadow-sm);
+  color: var(--text-light);
+  width: 100%;
 }
+
+.weather_news {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 16px 20px;
+  box-shadow: var(--shadow-sm);
+  width: 100%;
+}
+
+.weather_news p {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin: 4px 0;
+}
+
 a {
   text-decoration: none;
+  color: inherit;
 }
 .verses {
-  background: rgb(228, 228, 228);
-  border: 2px solid rgb(184, 184, 184);
-  border-radius: 10px;
-  height: 700px;
-  overflow: scroll;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 40px;
+  box-shadow: var(--shadow-md);
+  min-height: 600px;
+  max-height: 70vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary-light) transparent;
+}
+
+.verses::-webkit-scrollbar {
+  width: 8px;
+}
+
+.verses::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.verses::-webkit-scrollbar-thumb {
+  background: var(--primary-light);
+  border-radius: 4px;
+}
+
+.verses::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-color);
+}
+
+.verses .arabic {
+  display: block;
+  text-align: right;
+  direction: rtl;
+  font-family: 'Amiri', serif;
+  font-size: 2rem;
+  line-height: 2.5;
+  color: var(--primary-dark);
+  margin-bottom: 32px;
+  padding: 32px;
+  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+  border-radius: var(--radius-md);
+  border-right: 4px solid var(--accent-color);
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+
+.verses .arabic:empty::before {
+  content: 'Loading...';
+  color: var(--text-light);
+  font-style: italic;
+}
+
+.verses .english {
+  display: block;
+  text-align: left;
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: var(--text-primary);
+  margin-bottom: 32px;
+  padding: 24px;
+  background: var(--bg-primary);
+  border-radius: var(--radius-md);
+  border-left: 4px solid var(--primary-color);
+  font-weight: 400;
+  transition: var(--transition);
+}
+
+.verses .english:empty::before {
+  content: 'Loading translation...';
+  color: var(--text-light);
+  font-style: italic;
+}
+
+.verses .amharic {
+  display: block;
+  text-align: left;
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: var(--text-primary);
+  padding: 24px;
+  background: var(--bg-primary);
+  border-radius: var(--radius-md);
+  border-left: 4px solid var(--primary-light);
+  font-weight: 400;
+  transition: var(--transition);
+}
+
+.verses .amharic:empty::before {
+  content: 'Loading translation...';
+  color: var(--text-light);
+  font-style: italic;
+}
+
+.verses h3 {
+  margin: 0;
+  padding: 0;
+  border: none;
+  font-size: inherit;
+  font-weight: inherit;
+  text-align: inherit;
+  font-family: inherit;
 }
 
 .quran-player {
-  margin-top: 15px;
-  border: 2px solid rgb(184, 184, 184);
-  height: 150px;
-  border-radius: 10px;
-  background: rgb(228, 228, 228);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  background: var(--bg-card);
+  padding: 24px;
+  box-shadow: var(--shadow-md);
+  min-height: 180px;
 }
 
 .butn {
-  padding: 5px 10px;
-  color: rgb(255, 255, 255);
-  background: rgb(59, 41, 41);
-  font-size: 1.2rem;
+  padding: 12px 32px;
+  color: #ffffff;
+  background: var(--gradient-primary);
+  font-size: 1rem;
+  font-weight: 600;
   cursor: pointer;
-  transition: all 0.2s ease;
+  border: none;
+  border-radius: var(--radius-sm);
+  transition: var(--transition);
+  box-shadow: var(--shadow-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  width: 100%;
+  margin-top: 12px;
 }
 
 .butn:hover {
-  transform: translateY(2px);
-  color: rgb(7rgb (255, 145, 0) 75);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  background: linear-gradient(135deg, #0d3d26 0%, #1a5f3f 100%);
 }
 
-h3 {
-  text-align: center;
-  font-size: 2rem;
-  padding: 20px 20px;
-  font-family: 'Poppins', cursive;
-  border-bottom: 2px solid rgb(187, 187, 187);
+.butn:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-sm);
+}
+
+.hadith-b {
+  display: block;
+  width: 100%;
 }
 .news {
   position: fixed;
   bottom: 0;
+  left: 0;
+  right: 0;
   width: 100%;
-  background: #e4e4e4;
-  transition: all 0.3s ease;
-  border-top: 1px solid rgb(165, 165, 165);
-  margin-left: -10px;
+  background: var(--bg-secondary);
+  transition: var(--transition);
+  border-top: 2px solid var(--border-color);
+  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.05);
+  z-index: 100;
+  padding: 12px 0;
 }
+
 .news_feed {
   display: flex;
-  animation: ticker 15s linear infinite;
+  animation: ticker 30s linear infinite;
+  padding: 0 20px;
 }
+
 .news_feed p {
   margin: 0;
   white-space: nowrap;
   text-overflow: ellipsis;
-  font-size: 1.5rem;
-  margin-right: 20px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  margin-right: 40px;
+  padding: 4px 0;
 }
+
 .weather_news {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.weather_news > div {
   display: flex;
-  justify-content: space-around;
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-.weather_news p {
-  justify-content: space-between;
-  padding: 0;
-  line-height: 25px;
-  margin: 0;
-  text-align: left;
+  flex-direction: column;
 }
 
-@media (min-width: 601px) and (max-width: 1366px) {
-  body {
-    overflow-x: hidden;
-  }
+.weather_news > div:first-child p {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+@media (min-width: 1025px) and (max-width: 1440px) {
   .container {
-    column-gap: 20px;
-    height: 100vh;
+    grid-template-columns: 340px 1fr;
+    gap: 20px;
   }
-  .main-content {
-    margin: 0;
-    width: 940px;
-    height: 600px;
-  }
-  .menu-container {
-    width: 365px;
-    height: 500px;
-  }
+
   .header {
-    font-size: 2.5rem;
-    line-height: 40px;
-    margin: 0;
+    font-size: 2rem;
   }
-  .quran-menu {
-    font-size: 1.5rem;
-    margin: 0;
-    line-height: 35px;
-  }
-  .hadith-menu {
-    font-size: 1.5rem;
-    /* margin: 1rem 0; */
-  }
-  .ad {
-    font-size: 1rem;
-  }
+
   .verses {
-    height: 450px;
+    padding: 32px;
+    max-height: 65vh;
   }
-  .quran-player {
-    height: 100px;
+
+  .verses .arabic {
+    font-size: 1.75rem;
+    line-height: 2.2;
   }
-  .player-header {
-    left: 20%;
-    top: 2px;
+
+  .verses .english,
+  .verses .amharic {
+    font-size: 1rem;
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 1024px) {
   body {
-    overflow-x: hidden;
-  }
-  .container {
-    height: 95vh;
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    grid-template-rows: repeat(5, 1fr);
-  }
-  .header {
-    font-size: 1.2rem;
-    line-height: 20px;
-    margin: 0;
-  }
-  .main-content {
-    grid-column: 3 / 8;
-    grid-row: 1 / 7;
-    width: 100%;
-    margin-top: 0;
-  }
-  .menu-container {
-    grid-column: 1 / 3;
-    grid-row: 2 / 3;
-    width: 100%;
-  }
-  .menu-item {
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-  }
-  h3 {
-    font-size: 1rem;
-  }
-  .quran-menu {
-    width: 100%;
-    margin-left: -5px;
-  }
-  .quran-menu p {
-    line-height: 15px;
-    font-size: 0.75rem;
-    margin: 0;
-    padding: 0;
-  }
-  .quran-b {
-    margin: 0;
-    padding: 5px 10px;
-    font-size: 16px;
-  }
-  .hadith-b {
-    padding: 5px 10px;
-  }
-  .hadith-menu {
-    font-size: 0.75rem;
-    width: 100%;
-    margin-left: -5px;
-  }
-  .ad {
-    padding: 5px 10px;
-    line-height: 1;
-    width: 100%;
-    margin-left: -5px;
-  }
-  .butn {
-    color: rgb(255, 255, 255);
-    background: rgb(59, 41, 41);
-    font-size: 0.75rem;
-    cursor: pointer;
-    transition: all 0.2s ease;
+    padding: 16px;
   }
 
-  .butn:hover {
-    transform: translateY(2px);
-    color: rgb(7rgb (255, 145, 0) 75);
+  .container {
+    grid-template-columns: 1fr;
+    gap: 20px;
   }
+
+  .menu-container {
+    position: static;
+    padding: 24px 20px;
+  }
+
+  .header {
+    font-size: 2rem;
+  }
+
+  .verses {
+    padding: 24px;
+    max-height: 60vh;
+  }
+
+  .verses .arabic {
+    font-size: 1.5rem;
+    line-height: 2;
+    padding: 20px;
+  }
+
+  .verses .english,
+  .verses .amharic {
+    font-size: 1rem;
+    padding: 20px;
+  }
+
   .quran-player {
-    height: 150px;
-    background: #c7c7c7;
-    padding-top: 20px;
-    border-radius: 10px;
-    position: relative;
+    padding: 20px;
   }
-  .player-header {
-    position: absolute;
-    left: 20px;
-    text-align: center;
-    top: 2px;
-    width: 200px;
-    font-size: small;
+
+  .weather_news {
+    grid-template-columns: 1fr;
+    gap: 12px;
   }
-  #surahs {
-    position: absolute;
-    top: 25px;
-    left: 0;
-    width: 100px;
-    height: 30px;
-    text-align: center;
-    font-size: 15px;
-    padding-left: 2px;
-    margin-left: 5px;
+}
+
+@media (max-width: 768px) {
+  body {
+    padding: 12px;
   }
-  .player-controls {
-    width: 100%;
-    position: absolute;
-    left: 55px;
-    z-index: 10;
+
+  .container {
+    gap: 16px;
   }
-  #stop {
-    padding: 0;
-    margin: 0;
+
+  .menu-container {
+    padding: 20px 16px;
   }
-  .weather_news p {
-    font-size: 7px;
-    line-height: 20px;
-    margin: 0;
-    text-align: left;
+
+  .header {
+    font-size: 1.75rem;
   }
-  .fas {
-    font-size: 20px;
-    color: rgb(129, 129, 129);
-    margin-right: 20px;
-    cursor: pointer;
-    user-select: none;
+
+  .verses {
+    padding: 20px 16px;
+    max-height: 55vh;
   }
-  .maximize {
-    position: absolute;
-    bottom: 5px;
-    right: 5px;
-    width: 70px;
-    text-align: center;
-    border-bottom-right-radius: 10px;
-    font-size: 10px;
+
+  .verses .arabic {
+    font-size: 1.25rem;
+    line-height: 1.8;
+    padding: 16px;
+    margin-bottom: 24px;
+  }
+
+  .verses .english,
+  .verses .amharic {
+    font-size: 0.9375rem;
+    padding: 16px;
+    margin-bottom: 24px;
+  }
+
+  .butn {
+    padding: 10px 24px;
+    font-size: 0.875rem;
+  }
+
+  .quran-menu p,
+  .quran-menu .surahName,
+  .quran-menu .ayahNumb {
+    font-size: 1rem;
+  }
+
+  .news_feed p {
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    font-size: 1.5rem;
+  }
+
+  .verses {
+    padding: 16px 12px;
+    max-height: 50vh;
+  }
+
+  .verses .arabic {
+    font-size: 1.125rem;
+    line-height: 1.6;
+    padding: 12px;
+  }
+
+  .verses .english,
+  .verses .amharic {
+    font-size: 0.875rem;
+    padding: 12px;
+  }
+
+  .menu-container {
+    padding: 16px 12px;
+  }
+
+  .quran-menu,
+  .hadith-menu,
+  .ad,
+  .weather_news {
+    padding: 16px;
   }
 }

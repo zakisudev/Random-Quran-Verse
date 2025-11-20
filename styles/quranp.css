@@ -1,68 +1,183 @@
-/* Player Section*/
+/* Player Section */
 .quran-player {
-  background: #c7c7c7;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: relative;
+}
+
+#surahs {
+  width: 100%;
+  max-width: 300px;
+  height: 44px;
+  font-size: 0.9375rem;
+  padding: 10px 16px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%231a5f3f' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  padding-right: 40px;
+}
+
+#surahs:hover {
+  border-color: var(--primary-light);
+  box-shadow: var(--shadow-sm);
+}
+
+#surahs:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(26, 95, 63, 0.1);
+}
+
+.player-header {
+  text-align: center;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  padding: 8px 0;
+  margin-bottom: 8px;
+}
+
+.player-header strong {
+  color: var(--primary-color);
+  font-weight: 700;
+}
+
+.player-controls {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 20px;
-  position: relative;
-  padding-left: 5rem;
+  gap: 24px;
+  padding: 12px 0;
 }
-#surahs {
-  position: absolute;
-  left: 20px;
-  top: 10px;
-  width: 250px;
-  height: 30px;
-  font-size: 1rem;
-  padding: 5px;
-}
-.fas {
-  font-size: 50px;
-  color: rgb(129, 129, 129);
-  margin-right: 20px;
+
+.player-controls button {
+  background: none;
+  border: none;
+  padding: 0;
   cursor: pointer;
+  font: inherit;
+  color: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+  border-radius: 50%;
+}
+
+.player-controls button i {
+  font-size: 32px;
+  color: var(--primary-color);
   user-select: none;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.player-header {
-  position: absolute;
-  top: 10px;
-  right: 465px;
-  width: 500px;
-  text-align: center;
-  overflow: hidden;
+
+.player-controls button:not(.main-button):not(.stop-button) {
+  width: 48px;
+  height: 48px;
 }
-.fas:hover {
-  filter: brightness(80%);
+
+.player-controls button:not(.main-button):not(.stop-button):hover {
+  background: rgba(26, 95, 63, 0.1);
+  transform: scale(1.1);
 }
+
+.player-controls button:not(.main-button):not(.stop-button):hover i {
+  color: var(--primary-dark);
+}
+
+.player-controls button:not(.main-button):not(.stop-button):active {
+  transform: scale(0.95);
+}
+
 .main-button {
-  font-size: 60px;
+  width: 64px;
+  height: 64px;
+  background: var(--gradient-primary);
+  box-shadow: var(--shadow-md);
 }
+
+.main-button i {
+  font-size: 48px;
+  color: #ffffff;
+}
+
+.main-button:hover {
+  background: linear-gradient(135deg, #0d3d26 0%, #1a5f3f 100%);
+  box-shadow: var(--shadow-lg);
+  transform: scale(1.05);
+}
+
+.main-button:active {
+  transform: scale(0.98);
+}
+
 .stop-button {
-  margin-left: 5rem;
+  width: 48px;
+  height: 48px;
 }
+
+.stop-button i {
+  color: #dc3545;
+}
+
+.stop-button:hover {
+  background: rgba(220, 53, 69, 0.1);
+  transform: scale(1.1);
+}
+
+.stop-button:hover i {
+  color: #c82333;
+}
+
+.stop-button:active {
+  transform: scale(0.95);
+}
+
 .player-control {
   display: flex;
   justify-content: space-around;
   align-items: center;
 }
+
 .maximize {
   position: absolute;
-  right: 10px;
-  bottom: 10px;
-  background: rgb(116, 183, 245);
+  right: 16px;
+  bottom: 16px;
+  background: var(--gradient-primary);
   border: none;
-  border-radius: 4px;
-  padding: 5px 15px;
-  font-size: 1rem;
+  border-radius: var(--radius-sm);
+  padding: 8px 16px;
+  font-size: 0.875rem;
+  font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s ease;
-  font-weight: bold;
-  color: rgb(2, 0, 77);
+  transition: var(--transition);
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: var(--shadow-sm);
 }
+
 .maximize:hover {
-  background: rgb(92, 144, 192);
-  color: black;
+  background: linear-gradient(135deg, #0d3d26 0%, #1a5f3f 100%);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.maximize:active {
+  transform: translateY(0);
 }
 
 @keyframes ticker {
@@ -71,5 +186,59 @@
   }
   100% {
     transform: translateX(-100%);
+  }
+}
+
+/* Responsive Player Styles */
+@media (max-width: 768px) {
+  .player-controls {
+    gap: 16px;
+  }
+  
+  .fas {
+    font-size: 24px;
+    width: 40px;
+    height: 40px;
+  }
+  
+  .main-button {
+    font-size: 36px;
+    width: 56px;
+    height: 56px;
+  }
+  
+  .player-header {
+    font-size: 0.75rem;
+  }
+  
+  #surahs {
+    max-width: 100%;
+    font-size: 0.875rem;
+    height: 40px;
+  }
+  
+  .maximize {
+    position: static;
+    margin-top: 12px;
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .player-controls {
+    gap: 12px;
+  }
+  
+  .fas {
+    font-size: 20px;
+    width: 36px;
+    height: 36px;
+  }
+  
+  .main-button {
+    font-size: 28px;
+    width: 48px;
+    height: 48px;
   }
 }
